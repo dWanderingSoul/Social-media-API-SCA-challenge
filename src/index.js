@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import pool from './config/db.js'; 
+import postRoutes from './routes/postRoutes.js';
 
 
 
@@ -32,7 +33,7 @@ app.get('/', async (req, res) => {
     console.log("Start");
     const result = await pool.query('SELECT current_database()');
     console.log("end");
-    res.send('The database name is ',${result.rows[0].current_database});
+    res.send('The database name is ' + result.rows[0].current_database);
 });
 
 
